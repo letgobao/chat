@@ -1,0 +1,13 @@
+model friends {
+  id             String @id
+  userId         String @map("user_id") @db.VarChar(35)
+  friendId       String @map("friend_id") @db.VarChar(35)
+  conversationId String @unique @map("conversation_id")
+
+  friend       users         @relation("friend_user2", fields: [friendId], references: [id], onDelete: Cascade)
+  user         users         @relation("friend_user1", fields: [userId], references: [id], onDelete: Cascade)
+  conversation conversations @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([userId], type: BTree)
+  @@index([friendId], type: BTree)
+}

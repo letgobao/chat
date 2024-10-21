@@ -1,0 +1,90 @@
+.container {
+  height: 90px;
+  width: 90px;
+  position: relative;
+  animation: spin 1.5s infinite;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.container > div:nth-child(1) {
+  height: 30px;
+  width: 30px;
+  background-image: linear-gradient(
+    45deg,
+    #f7d000,
+    #e6970e
+  );
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  box-shadow: 0 0 3px #f7d000;
+  border-radius: 50%;
+  animation: move1 1.5s infinite;
+}
+@keyframes move1 {
+  50% {
+    transform: translate(-15px, -15px) scale(0.3);
+  }
+}
+.container > div:nth-child(2) {
+  height: 18px;
+  width: 18px;
+  background-image: linear-gradient(
+    45deg,
+    #00d7f7,
+    #04c0f5
+  );
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  box-shadow: 0 0 2px #00d7f7;
+  border-radius: 50%;
+  animation: move2 1.5s infinite;
+}
+@keyframes move2 {
+  50% {
+    transform: translate(8px, -12px) scale(0.55);
+  }
+}
+.container > div:nth-child(3) {
+  height: 30px;
+  width: 30px;
+  background-image: linear-gradient(
+    45deg,
+    #f60180,
+    #f7014f
+  );
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  box-shadow: 0 0 3px #f60180;
+  border-radius: 50%;
+  animation: move3 1.5s infinite;
+}
+@keyframes move3 {
+  50% {
+    transform: translate(15px, 15px) scale(0.3);
+  }
+}
+.container > div:nth-child(4) {
+  height: 18px;
+  width: 18px;
+  background-image: linear-gradient(
+    45deg,
+    #da00f7,
+    #b501f6
+  );
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 50%;
+  animation: move4 1.5s infinite;
+}
+@keyframes move4 {
+  50% {
+    transform: translate(-8px, 12px) scale(0.55);
+  }
+}

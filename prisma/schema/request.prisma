@@ -1,0 +1,8 @@
+model requests {
+  id         String @id
+  senderId   String @map("sender_id") @db.VarChar(50)
+  receiverId String @map("receiver_id") @db.VarChar(50)
+
+  receiver users @relation(fields: [receiverId], references: [id], onDelete: Cascade)
+  sender   users @relation("request_sender", fields: [senderId], references: [id], onDelete: Cascade)
+}

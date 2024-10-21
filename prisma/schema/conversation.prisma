@@ -1,0 +1,13 @@
+model conversations {
+  id            String    @id @default(cuid())
+  name          String?
+  isGroup       Boolean   @default(false) @map("is_group")
+  lastMessageId String?   @map("last_message_id")
+  lastActive    DateTime? @default(now()) @map("last_active")
+
+  members  members[]
+  friends  friends?
+  messages messages[]
+
+  @@index([lastActive(sort: Desc)])
+}

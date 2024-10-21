@@ -1,0 +1,15 @@
+model users {
+  id       String  @id @db.VarChar(35)
+  email    String  @unique @db.VarChar(100)
+  imageUrl String? @map("image_url") @db.VarChar(200)
+  name     String? @db.VarChar(200)
+
+  sendedRequest   requests[] @relation("request_sender")
+  receivedRequest requests[]
+  friend1         friends[]  @relation("friend_user1")
+  friend2         friends[]  @relation("friend_user2")
+  members         members[]
+  messages        messages[]
+
+  @@index([email], type: BTree)
+}

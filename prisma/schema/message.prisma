@@ -1,0 +1,13 @@
+model messages {
+  id             String   @id @default(cuid())
+  content        String
+  senderId       String   @map("sender_id") @db.VarChar(35)
+  conversationId String   @map("conversation_id")
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  conversation conversations @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender       users         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@index([senderId], type: BTree)
+  @@index([conversationId], type: BTree)
+}
